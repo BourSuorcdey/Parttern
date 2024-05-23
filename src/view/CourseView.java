@@ -1,5 +1,6 @@
 package view;
 
+import exception.IsEmptyException;
 import repository.CourseRepository;
 import service.CourseServiceImp;
 
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 public class CourseView {
     private final CourseRepository courseService = new CourseServiceImp();
-    public void menu() {
+    public void menu() throws IsEmptyException {
         while (true) {
             System.out.println("=".repeat(50));
             System.out.println("1. Add new Course");
