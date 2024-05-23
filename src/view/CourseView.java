@@ -1,12 +1,12 @@
 package view;
 
-import service.CourseService;
+import repository.CourseRepository;
 import service.CourseServiceImp;
 
 import java.util.Scanner;
 
 public class CourseView {
-    private CourseService courseService = new CourseServiceImp();
+    private final CourseRepository courseService = new CourseServiceImp();
     public void menu() {
         while (true) {
             System.out.println("=".repeat(50));
@@ -18,26 +18,27 @@ public class CourseView {
             System.out.println("0. Exit.");
             System.out.println("=".repeat(50));
             System.out.print("[+] Insert option: ");
-            int option = new Scanner(System.in).nextInt();
+            String option = new Scanner(System.in).nextLine();
             switch (option) {
-                case 1 -> {
+                case "1" -> {
                     courseService.createCourse();
                 }
-                case 2 -> {
+                case "2" -> {
                     courseService.listAllCourse();
                 }
-                case 3 -> {
+                case "3" -> {
                     courseService.searchByID();
                 }
-                case 4 -> {
+                case "4" -> {
                     courseService.searchByName();
                 }
-                case 5 -> {
+                case "5" -> {
                     courseService.removeByID();
                 }
-                case 0 -> {
+                case "0" -> {
                     System.exit(0);
                 }
+                default -> System.out.println("Please, Input the right option [0->5]: ");
             }
         }
     }

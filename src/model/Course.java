@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
-    private Integer id;
+    private String id;
     private String title;
     private String[] instructorName;
     private String[] requirement;
